@@ -19,9 +19,9 @@ public class Health : MonoBehaviour
     public GameObject explosionPrefab;
     public float tiempoEsperaMuerte = 1f;
 
-    // --- VARIABLES ESTÁTICAS (Persistentes entre muertes) ---
+    // Variables estaticas para mantener el checkpoint al recargar escena
     private static Vector3 respawnPointPermanente;
-    private static string nombreNivelCheckpoint; // Para saber a qué nivel pertenece el checkpoint
+    private static string nombreNivelCheckpoint;
     private static bool hayCheckpointActivado = false;
 
     private bool canTakeDamage = true;
@@ -40,18 +40,15 @@ public class Health : MonoBehaviour
 
         vidaActual = vidaMaxima;
 
-        // Obtenemos el nombre del nivel actual en el que estamos
         string nombreEscenaActual = SceneManager.GetActiveScene().name;
 
-        // COMPROBACIÓN DE NIVEL
-        // Solo reaparecemos en el checkpoint si ya activamos uno Y es del mismo nivel
+        // Si tenemos un checkpoint valido en este nivel, nos movemos alli
         if (hayCheckpointActivado && nombreNivelCheckpoint == nombreEscenaActual)
         {
             transform.position = respawnPointPermanente;
         }
         else
         {
-            // Si es un nivel nuevo o no hay checkpoint, el punto inicial es donde está el jugador ahora
             respawnPointPermanente = transform.position;
             nombreNivelCheckpoint = nombreEscenaActual;
             hayCheckpointActivado = true;
@@ -103,7 +100,6 @@ public class Health : MonoBehaviour
 
         yield return new WaitForSeconds(tiempoEsperaMuerte);
 
-        // Al reiniciar la escena, el Start() comprobará si el checkpoint guardado es de este mismo nivel
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -120,11 +116,10 @@ public class Health : MonoBehaviour
         canTakeDamage = true;
     }
 
-    // Esta función la llama el Checkpoint (bandera)
     public void SetRespawnPoint(Vector3 newPosition)
     {
         respawnPointPermanente = newPosition;
-        nombreNivelCheckpoint = SceneManager.GetActiveScene().name; // Guardamos el nombre del nivel
+        nombreNivelCheckpoint = SceneManager.GetActiveScene().name;
         hayCheckpointActivado = true;
     }
 }

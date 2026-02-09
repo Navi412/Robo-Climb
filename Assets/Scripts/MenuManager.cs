@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEngine.EventSystems; // Necesario para el mando
-using System.Collections; // Necesario para la correcci�n del "Click inicial"
+using UnityEngine.EventSystems; 
+using System.Collections; 
 
 public class MenuManager : MonoBehaviour
 {
@@ -13,17 +13,18 @@ public class MenuManager : MonoBehaviour
     public GameObject contenedorMenuPrincipal;
     public GameObject panelConfiguracion;
 
-    [Header("Textos Din�micos")]
+    [Header("Textos Dinámicos")]
     public TextMeshProUGUI textoBotonJugar;
 
-    [Header("Navegaci�n Mando (ARRASTRAR AQU�)")]
-    public GameObject primerBotonMenu;     // Arrastra el Btn_Jugar
-    public GameObject primerBotonOpciones; // Arrastra el Slider de Volumen o el bot�n de Cerrar Opciones
+    [Header("Navegación Mando (ARRASTRAR AQUÍ)")]
+    public GameObject primerBotonMenu;     // El botón de Jugar
+    public GameObject primerBotonOpciones; // El slider o botón de cerrar opciones
 
     private bool juegoPausado = false;
 
     void Awake()
     {
+        // Singleton: aseguramos que no se destruya al cambiar de escena y solo haya uno
         if (instance == null)
         {
             instance = this;
@@ -37,25 +38,27 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-        // Forzamos la selecci�n al arrancar el juego con un peque�o retraso
-        // para asegurar que Unity ha cargado todo el sistema de Input
+        // Si empezamos en el menú, seleccionamos el botón a la fuerza para que el mando funcione
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             StartCoroutine(SeleccionarBotonConRetraso(primerBotonMenu));
         }
     }
 
+    // Nos suscribimos a los eventos de carga de escena
     void OnEnable() { SceneManager.sceneLoaded += OnSceneLoaded; }
     void OnDisable() { SceneManager.sceneLoaded -= OnSceneLoaded; }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // Si cargamos el menú (índice 0)
         if (scene.buildIndex == 0)
         {
             MostrarMenuPrincipal();
         }
         else
         {
+            // Si es el juego, ocultamos todo y bloqueamos el ratón
             juegoPausado = false;
             canvasDelMenu.SetActive(false);
             Time.timeScale = 1f;
@@ -66,9 +69,10 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
+        // Si no estamos en el menú principal (estamos jugando)
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            // ESC o START (Mando)
+            // Botón pausa (Escape o Start en mando)
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton9))
             {
                 if (juegoPausado) Reanudar();
@@ -77,7 +81,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    // --- L�GICA ---
+    // --- FUNCIONES DE CONTROL ---
 
     public void CargarJuego()
     {
@@ -94,11 +98,12 @@ public class MenuManager : MonoBehaviour
 
         if (textoBotonJugar != null) textoBotonJugar.text = "Reanudar";
 
+        // Paramos el tiempo y mostramos el cursor
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        // Seleccionar bot�n Reanudar
+        // Marcamos el botón para poder navegar con mando en el menú de pausa
         StartCoroutine(SeleccionarBotonConRetraso(primerBotonMenu));
     }
 
@@ -110,7 +115,7 @@ public class MenuManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        // Limpiamos la selecci�n para que no se quede nada resaltado invisiblemente
+        // Limpiamos la selección de la UI
         EventSystem.current.SetSelectedGameObject(null);
     }
 
@@ -118,12 +123,13 @@ public class MenuManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
+            // Si estamos ingame, volvemos al menú
             Time.timeScale = 1f;
             SceneManager.LoadScene(0);
         }
         else
         {
-            Debug.Log("Saliendo...");
+            // Si ya estamos en el menú, cerramos la aplicación
             Application.Quit();
         }
     }
@@ -135,12 +141,12 @@ public class MenuManager : MonoBehaviour
 
         if (mostrar)
         {
-            // Si entramos a opciones -> Seleccionar Slider o Bot�n de opciones
+            // Al entrar en opciones, seleccionamos el primer control de ese panel
             StartCoroutine(SeleccionarBotonConRetraso(primerBotonOpciones));
         }
         else
         {
-            // Si volvemos al men� -> Seleccionar Jugar/Reanudar
+            // Al volver, seleccionamos de nuevo el botón de Jugar
             StartCoroutine(SeleccionarBotonConRetraso(primerBotonMenu));
         }
     }
@@ -161,18 +167,15 @@ public class MenuManager : MonoBehaviour
         StartCoroutine(SeleccionarBotonConRetraso(primerBotonMenu));
     }
 
-    // --- CORUTINA M�GICA ---
-    // Esta funci�n espera un frame antes de seleccionar el bot�n.
-    // Es vital para corregir el fallo de "tengo que hacer clic primero".
+    // Corutina para arreglar el bug de Unity donde el botón no se selecciona si no esperas un frame
     IEnumerator SeleccionarBotonConRetraso(GameObject boton)
     {
         if (boton != null)
         {
-            // Esperamos al final del frame para asegurarnos que la UI ya est� activa
-            yield return null;
+            yield return null; // Esperamos un frame
 
-            EventSystem.current.SetSelectedGameObject(null); // Limpiar
-            EventSystem.current.SetSelectedGameObject(boton); // Seleccionar
+            EventSystem.current.SetSelectedGameObject(null); 
+            EventSystem.current.SetSelectedGameObject(boton); 
         }
     }
 

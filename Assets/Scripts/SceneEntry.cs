@@ -1,24 +1,24 @@
 using UnityEngine;
-using UnityEngine.UI; // Necesario para la UI
-using DG.Tweening; // Necesario para DOTween
+using UnityEngine.UI; 
+using DG.Tweening; 
 
 public class SceneEntry : MonoBehaviour
 {
-    [Header("Configuración")]
+    [Header("ConfiguraciÃ³n")]
     public float duracionFade = 1f;
 
     private Image imagenCortina;
 
     void Awake()
     {
-        // 1. Cogemos la referencia de la propia imagen
+        // Pillamos el componente de imagen
         imagenCortina = GetComponent<Image>();
 
-        // 2. Nos aseguramos de que empiece NEGRA TOTAL antes de que se vea nada
+        // La ponemos totalmente opaca (negra) antes de empezar para tapar todo
         if (imagenCortina != null)
         {
             Color colorInicial = imagenCortina.color;
-            colorInicial.a = 1f; // Alpha 1 = Opaco
+            colorInicial.a = 1f; 
             imagenCortina.color = colorInicial;
             imagenCortina.gameObject.SetActive(true);
         }
@@ -26,14 +26,12 @@ public class SceneEntry : MonoBehaviour
 
     void Start()
     {
-        // 3. Nada más arrancar el nivel, hacemos el fade hacia transparente (0)
         if (imagenCortina != null)
         {
-            // Fade a 0 (transparente)
+            // Usamos DoTween para bajar el alpha a 0 (transparente)
             imagenCortina.DOFade(0f, duracionFade).OnComplete(() =>
             {
-                // Opcional: Al terminar, desactivamos el objeto para que no gaste recursos
-                // ni bloquee clicks del ratón por error.
+                // Al terminar la animaciÃ³n apagamos el objeto para que no moleste
                 imagenCortina.gameObject.SetActive(false);
             });
         }

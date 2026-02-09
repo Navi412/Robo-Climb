@@ -1,50 +1,48 @@
 using UnityEngine;
-using UnityEngine.EventSystems; // Necesario para detectar ratón y mando
-using DG.Tweening; // Necesario para las animaciones
+using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class BotonAnimado : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, ISelectHandler, IDeselectHandler
 {
     [Header("Configuración Hover/Selección")]
-    public float escalaHover = 1.1f; // Tamaño al seleccionar
+    public float escalaHover = 1.1f;
     public float duracionHover = 0.2f;
 
     [Header("Configuración Click")]
-    public float escalaClick = 0.9f; // Tamaño al pulsar
+    public float escalaClick = 0.9f;
     public float duracionClick = 0.1f;
 
     private Vector3 escalaOriginal;
 
     void Start()
     {
-        // Guardamos el tamaño original al iniciar
         escalaOriginal = transform.localScale;
     }
 
-    // --- EVENTOS DE RATÓN ---
+    // Detectar raton entrando
     public void OnPointerEnter(PointerEventData eventData)
     {
         AnimarSeleccion();
     }
 
+    // Detectar raton saliendo
     public void OnPointerExit(PointerEventData eventData)
     {
         AnimarDeseleccion();
     }
 
-    // --- EVENTOS DE MANDO / TECLADO (ISelectHandler) ---
-    // Se ejecuta automáticamente cuando el EventSystem selecciona este botón
+    // Detectar seleccion con mando/teclado
     public void OnSelect(BaseEventData eventData)
     {
         AnimarSeleccion();
     }
 
-    // Se ejecuta cuando el foco se va a otro botón
     public void OnDeselect(BaseEventData eventData)
     {
         AnimarDeseleccion();
     }
 
-    // --- LÓGICA DE ANIMACIÓN ---
+    // Funciones de animacion con DOTween
     void AnimarSeleccion()
     {
         transform.DOKill();
@@ -57,7 +55,7 @@ public class BotonAnimado : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         transform.DOScale(escalaOriginal, duracionHover);
     }
 
-    // --- CLICS ---
+    // Detectar clic
     public void OnPointerDown(PointerEventData eventData)
     {
         transform.DOKill();

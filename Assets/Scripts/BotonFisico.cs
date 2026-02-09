@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-using System.Collections; // <--- ¡NUEVO! IMPORTANTE PARA QUE FUNCIONE EL RELOJ
+using System.Collections;
 
 public class BotonFisico : MonoBehaviour
 {
@@ -9,15 +9,15 @@ public class BotonFisico : MonoBehaviour
     public Sprite botonAbajo;
 
     [Header("Ajuste Físico")]
-    public Vector2 tamanoPresionado; 
+    public Vector2 tamanoPresionado;
     public Vector2 offsetPresionado;
 
-    [Header("Eventos Inmediatos (Confeti/Texto)")]
-    public UnityEvent AlPresionar; 
+    [Header("Eventos Inmediatos")]
+    public UnityEvent AlPresionar;
 
-    [Header("Evento con Retraso (Portal)")]
-    public float segundosDeRetraso = 6f; // Tiempo a esperar
-    public UnityEvent AlTerminarEspera; // <--- Aquí pondremos el portal
+    [Header("Evento con Retraso")]
+    public float segundosDeRetraso = 6f;
+    public UnityEvent AlTerminarEspera;
 
     private SpriteRenderer sr;
     private BoxCollider2D col;
@@ -38,10 +38,11 @@ public class BotonFisico : MonoBehaviour
         {
             foreach (ContactPoint2D contacto in collision.contacts)
             {
+                // Solo se activa si saltamos encima
                 if (contacto.normal.y < -0.5f)
                 {
                     Presionar();
-                    break; 
+                    break;
                 }
             }
         }
@@ -51,26 +52,19 @@ public class BotonFisico : MonoBehaviour
     {
         estaPulsado = true;
 
-        // 1. Cambio Físico y Visual
+        // Cambio de sprite y collider
         sr.sprite = botonAbajo;
         col.size = tamanoPresionado;
         col.offset = offsetPresionado;
 
-        // 2. Acción INMEDIATA (Confeti y Texto)
-        Debug.Log("🎉 ¡Fiesta!");
         AlPresionar.Invoke();
 
-        // 3. Acción RETRASADA (Empezamos la cuenta atrás)
         StartCoroutine(CuentaAtras());
     }
 
-    // Este es el reloj interno
     IEnumerator CuentaAtras()
     {
-        Debug.Log("⏳ Esperando " + segundosDeRetraso + " segundos...");
         yield return new WaitForSeconds(segundosDeRetraso);
-        
-        Debug.Log("🚪 ¡Portal abierto!");
-        AlTerminarEspera.Invoke(); // <--- Aquí se activa el portal
+        AlTerminarEspera.Invoke();
     }
 }

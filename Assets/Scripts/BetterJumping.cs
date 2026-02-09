@@ -15,10 +15,13 @@ public class BetterJumping : MonoBehaviour
 
     void Update()
     {
-        if(rb.linearVelocity.y < 0)
+        // Si estamos cayendo, aplicamos mas gravedad para que caiga rapido
+        if (rb.linearVelocity.y < 0)
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        }else if(rb.linearVelocity.y > 0 && !Input.GetButton("Jump"))
+        }
+        // Si soltamos el boton de salto antes, cortamos el salto (salto pequeñito)
+        else if (rb.linearVelocity.y > 0 && !Input.GetButton("Jump"))
         {
             rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }

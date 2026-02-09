@@ -1,6 +1,6 @@
 using UnityEngine;
-using TMPro; // Necesario para el texto
-using UnityEngine.SceneManagement; // Necesario para detectar cambio de nivel
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,15 +9,14 @@ public class GameManager : MonoBehaviour
     [Header("Configuración General")]
     public int monedasTotales = 0;
 
-    // --- NUEVO: El Altavoz Central para evitar LAG ---
+    // AudioSource centralizado para evitar crear objetos temporales
     public AudioSource audioSourceEfectos;
 
-    // Variable para guardar el Checkpoint (del paso 1)
     public Vector3 ultimoPuntoRespawn;
 
     void Awake()
     {
-        // PATRÓN SINGLETON
+        // Singleton para persistencia entre escenas
         if (instance == null)
         {
             instance = this;
@@ -42,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         ActualizarTextoUI();
 
-        // Lógica de seguridad para el Respawn al cambiar de nivel
+        // Inicializamos el respawn si es la primera vez que cargamos
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null && ultimoPuntoRespawn == Vector3.zero)
         {
@@ -50,19 +49,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // --- SECCIÓN DE AUDIO (NUEVO) ---
-    // Esta función elimina el lag porque usa un AudioSource que ya existe en memoria
     public void ReproducirSonido(AudioClip clip, float volumen)
     {
         if (clip != null && audioSourceEfectos != null)
         {
-            // PlayOneShot permite que suenen varias cosas a la vez (ej: coger 3 monedas rápido)
             audioSourceEfectos.PlayOneShot(clip, volumen);
         }
     }
-    // --------------------------------
 
-    // --- SECCIÓN DE MONEDAS ---
     public void SumarMoneda()
     {
         monedasTotales++;
@@ -75,7 +69,6 @@ public class GameManager : MonoBehaviour
         ActualizarTextoUI();
     }
 
-    // --- SECCIÓN DE CHECKPOINTS ---
     public void ActualizarCheckpoint(Vector3 nuevaPosicion)
     {
         ultimoPuntoRespawn = nuevaPosicion;
@@ -85,7 +78,6 @@ public class GameManager : MonoBehaviour
     {
         return ultimoPuntoRespawn;
     }
-    // ------------------------------
 
     void ActualizarTextoUI()
     {

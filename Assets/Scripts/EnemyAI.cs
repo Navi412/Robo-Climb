@@ -17,13 +17,12 @@ public class EnemyAI : MonoBehaviour
     [Header("Configuración de Pasos")]
     public AudioClip sfxPasos;
     [Range(0f, 1f)] public float volumenPasos = 0.3f;
-    [Range(0.1f, 3f)] public float pitchPasos = 0.6f; // <--- ¡NUEVO! Velocidad de pasos
+    [Range(0.1f, 3f)] public float pitchPasos = 0.6f;
 
     [Header("Configuración de Muerte")]
     public AudioClip sfxMuerte;
     [Range(0f, 1f)] public float volumenMuerte = 1f;
 
-    [Header("Referencias")]
     private Transform player;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
@@ -68,14 +67,13 @@ public class EnemyAI : MonoBehaviour
 
     void GestionarSonidoPasos()
     {
-        // Si se está moviendo
+        // Reproducir sonido solo si nos movemos
         if (Mathf.Abs(rb.linearVelocity.x) > 0.1f)
         {
             if (!audioSource.isPlaying || audioSource.clip != sfxPasos)
             {
                 audioSource.volume = volumenPasos;
-                audioSource.pitch = pitchPasos; // <--- APLICAMOS LA VELOCIDAD AQUÍ
-
+                audioSource.pitch = pitchPasos;
                 audioSource.clip = sfxPasos;
                 audioSource.loop = true;
                 audioSource.Play();
@@ -108,6 +106,7 @@ public class EnemyAI : MonoBehaviour
 
     void Patrol()
     {
+        // Logica simple de patrulla entre dos puntos
         if (transform.position.x > startPosition.x + patrolDistance)
         {
             movingRight = false;
@@ -136,18 +135,21 @@ public class EnemyAI : MonoBehaviour
         {
             foreach (ContactPoint2D point in collision.contacts)
             {
+                // Si el jugador nos pisa la cabeza
                 if (point.normal.y < -0.5f)
                 {
                     Die();
                     Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
                     if (playerRb != null)
                     {
+                        // Impulso vertical al jugador
                         playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, 0);
                         playerRb.linearVelocity += Vector2.up * bounceForce;
                     }
                 }
                 else
                 {
+                    // Daño al jugador si nos toca por los lados
                     Health playerHealth = collision.gameObject.GetComponent<Health>();
                     if (playerHealth != null) playerHealth.TakeDamage(1);
                 }
@@ -163,9 +165,8 @@ public class EnemyAI : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.Stop();
-
             audioSource.volume = volumenMuerte;
-            audioSource.pitch = 1f; // <--- RESTAURAMOS VELOCIDAD NORMAL PARA LA MUERTE
+            audioSource.pitch = 1f;
 
             if (sfxMuerte != null) audioSource.PlayOneShot(sfxMuerte);
         }

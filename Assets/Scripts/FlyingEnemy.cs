@@ -7,7 +7,7 @@ public class FlyingEnemy : MonoBehaviour
     public float chaseRange = 10f;
     public float bounceForce = 10f;
 
-    [Header("Inteligencia (Esquivar)")]
+    [Header("Inteligencia")]
     public LayerMask obstacleLayer;
     public float avoidForce = 2f;
 
@@ -17,13 +17,12 @@ public class FlyingEnemy : MonoBehaviour
     [Header("Sonido Vuelo")]
     public AudioClip sfxVuelo;
     [Range(0f, 1f)] public float volumenVuelo = 0.5f;
-    [Range(0.1f, 3f)] public float pitchVuelo = 1f; // <--- ¡NUEVA BARRA! Controla la velocidad
+    [Range(0.1f, 3f)] public float pitchVuelo = 1f;
 
     [Header("Sonido Muerte")]
     public AudioClip sfxMuerte;
     [Range(0f, 1f)] public float volumenMuerte = 1f;
 
-    [Header("Referencias")]
     private Transform player;
     private SpriteRenderer sr;
     private Animator anim;
@@ -61,6 +60,8 @@ public class FlyingEnemy : MonoBehaviour
     void MoverMurcielago()
     {
         Vector2 direction = (player.position - transform.position).normalized;
+
+        // Raycast para detectar obstaculos y esquivarlos
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1.5f, obstacleLayer);
 
         if (hit.collider != null)
@@ -81,12 +82,11 @@ public class FlyingEnemy : MonoBehaviour
 
         if (debeVolar)
         {
-            // Solo iniciamos si no está sonando ya el aleteo
             if (audioSource.clip != sfxVuelo || !audioSource.isPlaying)
             {
                 audioSource.clip = sfxVuelo;
                 audioSource.volume = volumenVuelo;
-                audioSource.pitch = pitchVuelo; // <--- APLICAMOS LA VELOCIDAD AQUÍ
+                audioSource.pitch = pitchVuelo;
                 audioSource.loop = true;
                 audioSource.Play();
             }
@@ -108,6 +108,7 @@ public class FlyingEnemy : MonoBehaviour
         {
             foreach (ContactPoint2D point in collision.contacts)
             {
+                // Muerte si el jugador salta encima
                 if (point.normal.y < -0.5f)
                 {
                     Die();
@@ -135,9 +136,7 @@ public class FlyingEnemy : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.Stop();
-
-            // Ajustes para la muerte:
-            audioSource.pitch = 1f; // <--- RESTAURAMOS VELOCIDAD NORMAL
+            audioSource.pitch = 1f;
             audioSource.volume = volumenMuerte;
             audioSource.loop = false;
 

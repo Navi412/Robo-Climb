@@ -15,8 +15,7 @@ public class Estalactita : MonoBehaviour
 
     void Start()
     {
-        // Aplicamos la velocidad UNA vez y dejamos que el motor de física haga el resto
-        // Nota: Si usas una versión anterior a Unity 6, cambia 'linearVelocity' por 'velocity'
+        // Aplicamos velocidad inicial constante hacia abajo
         rb.linearVelocity = Vector2.down * velocidadCaida;
     }
 
@@ -24,7 +23,6 @@ public class Estalactita : MonoBehaviour
     {
         if (otro.CompareTag("Player"))
         {
-            // Asumiendo que tu script de vida se llama Health
             otro.GetComponent<Health>()?.TakeDamage(danio);
             Destroy(gameObject);
         }

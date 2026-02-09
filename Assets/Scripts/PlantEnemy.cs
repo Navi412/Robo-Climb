@@ -10,11 +10,11 @@ public class PlantEnemy : MonoBehaviour
     [Header("Visión (Ojos)")]
     public LayerMask obstacleLayer;
 
-    [Header("Audio")] // <--- NUEVA SECCIÓN
+    [Header("Audio")] 
     public AudioSource audioSource;
-    public AudioClip sfxDisparo; // Arrastra aquí el sonido "Pium!"
+    public AudioClip sfxDisparo; 
     [Range(0f, 1f)] public float volumenDisparo = 1f;
-    [Range(0.1f, 3f)] public float pitchDisparo = 1f; // Para cambiar si suena grave o agudo
+    [Range(0.1f, 3f)] public float pitchDisparo = 1f; 
 
     [Header("Referencias")]
     public Transform puntoDeDisparo;
@@ -25,12 +25,12 @@ public class PlantEnemy : MonoBehaviour
 
     void Start()
     {
+        // Buscamos al player y pillamos los componentes necesarios
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null) player = playerObj.transform;
 
         anim = GetComponent<Animator>();
 
-        // Autocompletar el AudioSource si se te olvida ponerlo
         if (audioSource == null) audioSource = GetComponent<AudioSource>();
     }
 
@@ -38,7 +38,7 @@ public class PlantEnemy : MonoBehaviour
     {
         if (player == null) return;
 
-        // --- 1. LÓGICA DE GIRO (FLIP) ---
+        // Orientamos el sprite hacia donde esté el jugador
         Vector3 escala = transform.localScale;
         if (player.position.x > transform.position.x)
             escala.x = Mathf.Abs(escala.x);
@@ -46,11 +46,12 @@ public class PlantEnemy : MonoBehaviour
             escala.x = -Mathf.Abs(escala.x);
         transform.localScale = escala;
 
-        // --- 2. LÓGICA DE DISPARO ---
+        // Comprobamos distancia y tiempo de recarga
         float distance = Vector2.Distance(transform.position, player.position);
 
         if (distance < shootingRange && Time.time > nextFireTime)
         {
+            // Solo dispara si no hay paredes bloqueando la visión
             if (CanSeePlayer())
             {
                 Shoot();
@@ -61,6 +62,7 @@ public class PlantEnemy : MonoBehaviour
 
     bool CanSeePlayer()
     {
+        // Lanzamos un rayo para ver si chocamos con obstáculos
         Vector2 direction = player.position - transform.position;
         float distanceToPlayer = direction.magnitude;
 
@@ -72,18 +74,16 @@ public class PlantEnemy : MonoBehaviour
 
     void Shoot()
     {
-        // A. Animación
         if (anim != null) anim.SetTrigger("Disparar");
 
-        // B. SONIDO (¡NUEVO!)
+        // Configuramos el tono y lanzamos el sonido
         if (audioSource != null && sfxDisparo != null)
         {
-            audioSource.pitch = pitchDisparo; // Ajustamos velocidad/tono
-            // PlayOneShot es perfecto para disparos: permite que suenen varios a la vez si dispara muy rápido
+            audioSource.pitch = pitchDisparo; 
             audioSource.PlayOneShot(sfxDisparo, volumenDisparo);
         }
 
-        // C. Crear la bala
+        // Creamos la bala y le decimos hacia dónde ir
         if (bulletPrefab != null && puntoDeDisparo != null)
         {
             GameObject bullet = Instantiate(bulletPrefab, puntoDeDisparo.position, Quaternion.identity);
@@ -99,6 +99,7 @@ public class PlantEnemy : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        // Dibujo de ayuda en el editor para ver el rango
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, shootingRange);
         if (player != null) Gizmos.DrawLine(transform.position, player.position);

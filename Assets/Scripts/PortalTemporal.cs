@@ -1,32 +1,32 @@
 using UnityEngine;
-using DG.Tweening; // ¡La magia!
+using DG.Tweening; // Librería para las interpolaciones
 
 public class PortalTemporal : MonoBehaviour
 {
     [Header("Configuración")]
-    public float tiempoDeVida = 3f; // Durará 3 segundos
-    public float velocidadEfecto = 0.5f; // Tiempo que tarda en abrirse/cerrarse
+    public float tiempoDeVida = 3f; // Cuánto dura abierto
+    public float velocidadEfecto = 0.5f; // Lo que tarda la animación
 
     void Start()
     {
-        // 1. AL NACER: Lo hacemos invisible (escala 0)
+        // Empezamos con tamaño 0 para que no se vea
         transform.localScale = Vector3.zero;
 
-        // 2. EFECTO DE APARICIÓN (Pop up elástico)
+        // Lo hacemos crecer con efecto elástico (OutBack)
         transform.DOScale(Vector3.one, velocidadEfecto).SetEase(Ease.OutBack);
 
-        // 3. Preparamos su muerte para dentro de X segundos
+        // Programamos el cierre para dentro de un rato
         Invoke("IniciarCierre", tiempoDeVida);
     }
 
     void IniciarCierre()
     {
-        // 4. EFECTO DE DESAPARICIÓN (Se encoge y luego se destruye)
+        // Lo encogemos de vuelta a 0
         transform.DOScale(Vector3.zero, velocidadEfecto)
-            .SetEase(Ease.InBack) // Efecto contrario al aparecer
+            .SetEase(Ease.InBack) // Efecto contrario (InBack) para que quede bien
             .OnComplete(() => 
             {
-                Destroy(gameObject); // Cuando termina de encogerse, bye bye
+                Destroy(gameObject); // Al terminar, borramos el objeto
             });
     }
 }

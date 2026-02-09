@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
     private GhostTrail ghostTrail;
 
     [Space]
-    [Header("🎮 CONFIGURACIÓN DE CONTROLES")]
+    [Header("Controles")]
     public KeyCode saltarTeclado = KeyCode.Space;
     public KeyCode saltarMando = KeyCode.JoystickButton0;
     public KeyCode dashTeclado = KeyCode.E;
@@ -22,19 +22,19 @@ public class Movement : MonoBehaviour
     public KeyCode agarrarMandoR1 = KeyCode.JoystickButton5;
 
     [Space]
-    [Header("Stats Movimiento")]
+    [Header("Ajustes de Movimiento")]
     public float speed = 10;
     public float jumpForce = 50;
     public float slideSpeed = 5;
     public float wallJumpLerp = 10;
     public float dashSpeed = 20;
 
-    [Header("Inercia (Efecto Hielo)")]
+    [Header("Inercia (Resbalar)")]
     public float acceleration = 60f;
     public float deceleration = 20f;
 
     [Space]
-    [Header("Booleans")]
+    [Header("Estados (No tocar)")]
     public bool canMove;
     public bool wallGrab;
     public bool wallJumped;
@@ -47,26 +47,26 @@ public class Movement : MonoBehaviour
     public int side = 1;
 
     [Space]
-    [Header("Polish Visual")]
+    [Header("Efectos Visuales")]
     public ParticleSystem dashParticle;
     public ParticleSystem jumpParticle;
     public ParticleSystem wallJumpParticle;
     public ParticleSystem slideParticle;
 
-    [Header("Audio Pasos (Bucle)")]
-    public AudioSource audioSource; // Este será SOLO para los pasos
+    [Header("Sonido Pasos")]
+    public AudioSource audioSource; // El principal para el bucle de andar
     public AudioClip sfxPasos;
     [Range(0f, 1f)] public float volumenPasos = 0.5f;
     [Range(0.1f, 3f)] public float pitchPasos = 1f;
 
-    [Header("Audio Efectos (Salto/Dash)")] // <--- ¡NUEVO!
+    [Header("Sonido FX")] 
     public AudioClip sfxSalto;
     [Range(0f, 1f)] public float volumenSalto = 1f;
 
     public AudioClip sfxDash;
     [Range(0f, 1f)] public float volumenDash = 1f;
 
-    // Canal invisible secundario para que el Stop() de los pasos no corte el Salto
+    // AudioSource extra para que los efectos no corten los pasos
     private AudioSource efectosSource;
 
     void Start()
@@ -76,13 +76,11 @@ public class Movement : MonoBehaviour
         anim = GetComponentInChildren<AnimationScript>();
         ghostTrail = FindFirstObjectByType<GhostTrail>();
 
-        // 1. Configuramos el AudioSource principal (Pasos)
         if (audioSource == null) audioSource = GetComponent<AudioSource>();
 
-        // 2. Creamos un AudioSource secundario por código para los efectos
-        // Así los saltos no se cortan cuando dejamos de caminar
+        // Creamos un altavoz secundario por código para saltos y dash
         efectosSource = gameObject.AddComponent<AudioSource>();
-        efectosSource.spatialBlend = 0; // 2D (Sonido plano)
+        efectosSource.spatialBlend = 0; 
 
         canMove = true;
     }
@@ -94,15 +92,14 @@ public class Movement : MonoBehaviour
         float xRaw = Input.GetAxisRaw("Horizontal");
         float yRaw = Input.GetAxisRaw("Vertical");
 
-        // 1. INPUT DE MOVIMIENTO
         Vector2 dir = new Vector2(xRaw, y);
 
-        // 2. LOGICA DE MOVIMIENTO (WALK)
+        // Moverse izquierda/derecha
         Walk(dir);
 
         anim.SetHorizontalMovement(Mathf.Abs(x), y, rb.linearVelocity.y);
 
-        // 3. LOGICA DE AGARRE (WALL GRAB)
+        // Lógica para agarrarse a las paredes
         bool agarreTeclado = Input.GetKey(agarrarTeclado);
         bool agarreR1 = Input.GetKey(agarrarMandoR1);
         bool agarreR2 = Input.GetAxisRaw("Grab") > 0.1f;
@@ -127,7 +124,7 @@ public class Movement : MonoBehaviour
             GetComponent<BetterJumping>().enabled = true;
         }
 
-        // --- FISICAS DE AGARRE ---
+        // Si estamos agarrados, quitamos la gravedad para no caer
         if (wallGrab && !isDashing)
         {
             rb.gravityScale = 0;
@@ -139,7 +136,7 @@ public class Movement : MonoBehaviour
             rb.gravityScale = 3;
         }
 
-        // --- WALL SLIDE ---
+        // Si estamos en pared pero sin agarrar, resbalamos
         if (coll.onWall && !coll.onGround)
         {
             if (x != 0 && !wallGrab)
@@ -151,7 +148,7 @@ public class Movement : MonoBehaviour
 
         if (!coll.onWall || coll.onGround) wallSlide = false;
 
-        // --- SALTO ---
+        // Saltar
         if (Input.GetKeyDown(saltarTeclado) || Input.GetKeyDown(saltarMando))
         {
             anim.SetTrigger("jump");
@@ -159,13 +156,13 @@ public class Movement : MonoBehaviour
             if (coll.onWall && !coll.onGround) WallJump();
         }
 
-        // --- DASH ---
+        // Dash
         if ((Input.GetKeyDown(dashTeclado) || Input.GetKeyDown(dashMando)) && !hasDashed)
         {
             if (xRaw != 0 || yRaw != 0) Dash(xRaw, yRaw);
         }
 
-        // --- GROUND TOUCH ---
+        // Resetear dash al tocar suelo
         if (coll.onGround && !groundTouch)
         {
             GroundTouch();
@@ -173,7 +170,7 @@ public class Movement : MonoBehaviour
         }
         if (!coll.onGround && groundTouch) groundTouch = false;
 
-        // --- DETECCION DE TOPE DE PARED ---
+        // Empujar un poco si llegamos al tope de la pared
         if (coll.onWall && !coll.onHead && wallGrab)
         {
             if (y > 0.1f)
@@ -187,7 +184,7 @@ public class Movement : MonoBehaviour
 
         WallParticle(y);
 
-        // --- GESTIÓN DE AUDIO PASOS ---
+        // Controlar si suenan los pasos o no
         GestionarAudioPasos(dir);
 
         if (wallGrab || wallSlide || !canMove) return;
@@ -213,8 +210,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            // Solo paramos si lo que suena son los pasos
-            // (Gracias al canal secundario, esto NO cortará el salto)
+            // Solo paramos si lo que estaba sonando eran pasos
             if (audioSource.isPlaying && audioSource.clip == sfxPasos)
             {
                 audioSource.Stop();
@@ -229,6 +225,7 @@ public class Movement : MonoBehaviour
 
         if (!wallJumped)
         {
+            // Aceleración y frenado suave
             float targetSpeed = dir.x * speed;
             float currentSpeed = rb.linearVelocity.x;
             float rate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
@@ -262,6 +259,7 @@ public class Movement : MonoBehaviour
 
     private void Dash(float x, float y)
     {
+        // Temblor de cámara con DoTween
         Camera.main.transform.DOComplete();
         Camera.main.transform.DOShakePosition(.2f, .5f, 14, 90, false, true);
         if (ghostTrail != null) ghostTrail.ShowGhost();
@@ -269,12 +267,11 @@ public class Movement : MonoBehaviour
         hasDashed = true;
         anim.SetTrigger("dash");
 
-        // --- SONIDO DASH (NUEVO) ---
+        // Sonido del dash en el canal extra
         if (efectosSource != null && sfxDash != null)
         {
             efectosSource.PlayOneShot(sfxDash, volumenDash);
         }
-        // ---------------------------
 
         rb.linearVelocity = Vector2.zero;
         Vector2 dir = new Vector2(x, y);
@@ -319,12 +316,11 @@ public class Movement : MonoBehaviour
 
     private void Jump(Vector2 dir, bool wall)
     {
-        // --- SONIDO SALTO (NUEVO) ---
+        // Sonido de salto
         if (efectosSource != null && sfxSalto != null)
         {
             efectosSource.PlayOneShot(sfxSalto, volumenSalto);
         }
-        // ----------------------------
 
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
         rb.linearVelocity += dir * jumpForce;
@@ -342,6 +338,7 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Si caemos encima de un enemigo, rebotamos
         if (collision.gameObject.CompareTag("Enemy"))
         {
             foreach (ContactPoint2D point in collision.contacts)
@@ -363,7 +360,6 @@ public class Movement : MonoBehaviour
         rb.linearVelocity += Vector2.up * fuerzaRebote;
         anim.SetTrigger("jump");
 
-        // También ponemos sonido al rebotar en cosas externas (opcional)
         if (efectosSource != null && sfxSalto != null)
             efectosSource.PlayOneShot(sfxSalto, volumenSalto);
     }
@@ -375,7 +371,6 @@ public class Movement : MonoBehaviour
         rb.linearVelocity = direccion * fuerza;
         anim.SetTrigger("jump");
 
-        // También ponemos sonido al rebotar direccionalmente
         if (efectosSource != null && sfxSalto != null)
             efectosSource.PlayOneShot(sfxSalto, volumenSalto);
     }

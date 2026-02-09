@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AnimationScript : MonoBehaviour
 {
-
     private Animator anim;
     private Movement move;
     private Collision coll;
@@ -21,6 +20,7 @@ public class AnimationScript : MonoBehaviour
 
     void Update()
     {
+        // Pasamos las variables del script de fisicas al animator
         anim.SetBool("onGround", coll.onGround);
         anim.SetBool("onWall", coll.onWall);
         anim.SetBool("onRightWall", coll.onRightWall);
@@ -28,10 +28,9 @@ public class AnimationScript : MonoBehaviour
         anim.SetBool("wallSlide", move.wallSlide);
         anim.SetBool("canMove", move.canMove);
         anim.SetBool("isDashing", move.isDashing);
-
     }
 
-    public void SetHorizontalMovement(float x,float y, float yVel)
+    public void SetHorizontalMovement(float x, float y, float yVel)
     {
         anim.SetFloat("HorizontalAxis", x);
         anim.SetFloat("VerticalAxis", y);
@@ -45,18 +44,14 @@ public class AnimationScript : MonoBehaviour
 
     public void Flip(int side)
     {
-
+        // Evitamos girar si estamos agarrados a la pared
         if (move.wallGrab || move.wallSlide)
         {
-            if (side == -1 && sr.flipX)
-                return;
-
-            if (side == 1 && !sr.flipX)
-            {
-                return;
-            }
+            if (side == -1 && sr.flipX) return;
+            if (side == 1 && !sr.flipX) return;
         }
 
+        // Girar el sprite segun la direccion
         bool state = (side == 1) ? false : true;
         sr.flipX = state;
     }

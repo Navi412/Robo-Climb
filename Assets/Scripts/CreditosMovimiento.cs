@@ -1,23 +1,21 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Necesario para cambiar de escena al final
+using UnityEngine.SceneManagement;
 
 public class CreditosMovimiento : MonoBehaviour
 {
     [Header("Configuración")]
-    public float velocidadSubida = 50f; // Ajusta esto según lo largo que sea el texto
-    public float alturaFinal = 1500f;   // La posición Y donde termina (cuando sale de pantalla)
-    public string escenaMenu = "MenuPrincipal"; // Nombre EXACTO de tu escena de menú
+    public float velocidadSubida = 50f;
+    public float alturaFinal = 1500f;
+    public string escenaMenu = "MenuPrincipal";
 
     void Update()
     {
-        // 1. Mover el texto hacia arriba
+        // Movimiento vertical constante
         transform.Translate(Vector3.up * velocidadSubida * Time.deltaTime);
 
-        // 2. Comprobar si ya ha terminado
-        // Usamos localPosition porque es parte de la UI
+        // Comprobamos si el texto ha salido de la pantalla
         if (transform.localPosition.y > alturaFinal)
         {
-            Debug.Log("🏁 Créditos terminados. Volviendo al menú...");
             SceneManager.LoadScene(escenaMenu);
         }
     }

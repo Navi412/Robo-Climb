@@ -1,41 +1,38 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // Necesario para controlar la Imagen UI
-using DG.Tweening; // Necesario para la animación suave
+using UnityEngine.UI; 
+using DG.Tweening; 
 
 public class LevelPortal : MonoBehaviour
 {
     [Header("Configuración del Viaje")]
-    [Tooltip("Escribe aquí EXACTAMENTE el nombre de la escena del siguiente nivel")]
+    // Nombre exacto de la escena a cargar
     public string siguienteNivel = "Nivel2";
 
     [Header("Efectos Visuales")]
-    [Tooltip("Arrastra aquí la imagen 'CortinaNegra' de tu Canvas")]
+    // La imagen negra del Canvas para el fundido
     public Image cortinaNegra;
-    public float duracionFade = 1f; // Tiempo que tarda en ponerse negro
+    public float duracionFade = 1f; 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Si el jugador toca el portal
+        // Comprobamos si es el jugador quien entra
         if (collision.CompareTag("Player"))
         {
-            // Opcional: Bloquear el movimiento del jugador para que no se mueva durante el fade
+            // Bloqueamos el movimiento para que no se pueda mover mientras carga
             if (collision.TryGetComponent(out Movement playerMove))
             {
                 playerMove.canMove = false;
-                playerMove.rb.linearVelocity = Vector2.zero; // Frenarlo en seco
+                playerMove.rb.linearVelocity = Vector2.zero; // Frenamos al personaje
             }
 
-            Debug.Log("🌀 Iniciando transición a: " + siguienteNivel);
-
-            // LOGICA DEL FADE
+            // Si tenemos la imagen asignada, hacemos el efecto fade
             if (cortinaNegra != null)
             {
-                // Nos aseguramos de que empiece transparente
                 cortinaNegra.gameObject.SetActive(true);
-                cortinaNegra.color = new Color(0, 0, 0, 0);
+                cortinaNegra.color = new Color(0, 0, 0, 0); // Nos aseguramos que empiece transparente
 
-                // ANIMACIÓN: Vamos a Alpha 1 (Negro) y AL TERMINAR (.OnComplete), cargamos nivel
+                // Usamos DoTween para ir a negro y cuando termine (.OnComplete) cambiamos de escena
                 cortinaNegra.DOFade(1f, duracionFade).OnComplete(() =>
                 {
                     SceneManager.LoadScene(siguienteNivel);
@@ -43,8 +40,7 @@ public class LevelPortal : MonoBehaviour
             }
             else
             {
-                // Si se te olvidó poner la imagen, cargamos directo para que no se rompa el juego
-                Debug.LogWarning("⚠️ No has asignado la CortinaNegra en el inspector del Portal");
+                // Si se nos olvidó poner la imagen, cargamos directo para que funcione igual
                 SceneManager.LoadScene(siguienteNivel);
             }
         }

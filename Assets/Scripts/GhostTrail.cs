@@ -6,8 +6,8 @@ public class GhostTrail : MonoBehaviour
     private Movement move;
     private AnimationScript anim;
     private SpriteRenderer sr;
-    
-    public Transform ghostsParent; 
+
+    public Transform ghostsParent;
     public Color trailColor;
     public Color fadeColor;
     public float ghostInterval;
@@ -15,7 +15,6 @@ public class GhostTrail : MonoBehaviour
 
     private void Start()
     {
-        // Actualizado a la versión nueva para evitar alertas amarillas
         anim = FindFirstObjectByType<AnimationScript>();
         move = FindFirstObjectByType<Movement>();
         sr = GetComponent<SpriteRenderer>();
@@ -23,7 +22,6 @@ public class GhostTrail : MonoBehaviour
 
     public void ShowGhost()
     {
-        // Si se nos olvida asignar el padre, salimos sin dar errores
         if (ghostsParent == null) return;
 
         Sequence s = DOTween.Sequence();
@@ -31,14 +29,14 @@ public class GhostTrail : MonoBehaviour
         for (int i = 0; i < ghostsParent.childCount; i++)
         {
             Transform currentGhost = ghostsParent.GetChild(i);
-            
-            s.AppendCallback(()=> currentGhost.position = move.transform.position);
+
+            // Copiamos posicion y sprite del jugador actual
+            s.AppendCallback(() => currentGhost.position = move.transform.position);
             s.AppendCallback(() => currentGhost.GetComponent<SpriteRenderer>().flipX = anim.sr.flipX);
-            s.AppendCallback(()=> currentGhost.GetComponent<SpriteRenderer>().sprite = anim.sr.sprite);
-            
-            // Color inicial
+            s.AppendCallback(() => currentGhost.GetComponent<SpriteRenderer>().sprite = anim.sr.sprite);
+
             s.Append(currentGhost.GetComponent<SpriteRenderer>().DOColor(trailColor, 0));
-            
+
             s.AppendCallback(() => FadeSprite(currentGhost));
             s.AppendInterval(ghostInterval);
         }

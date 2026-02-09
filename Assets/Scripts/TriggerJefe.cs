@@ -2,22 +2,21 @@ using UnityEngine;
 
 public class TriggerJefe : MonoBehaviour
 {
-    public GameObject prefabPortalTemporal; // Arrastra aquí tu prefab del paso 2
-    public Transform puntoDeAparicion; // Un objeto vacío donde quieres que salga
+    // Referencias al prefab del portal y el punto de spawn
+    public GameObject prefabPortalTemporal;
+    public Transform puntoDeAparicion;
 
-    private bool activado = false;
+    private bool activado = false; // Flag para que no se repita el evento
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Comprobamos si es el player y si no se ha activado antes
         if (collision.CompareTag("Player") && !activado)
         {
             activado = true;
-            Debug.Log("💀 ¡Invocando Portal del Boss!");
 
-            // Hacemos aparecer el portal
+            // Spawneamos el portal en la posición marcada
             Instantiate(prefabPortalTemporal, puntoDeAparicion.position, Quaternion.identity);
-            
-            // Aquí podrías activar también al Boss...
         }
     }
 }

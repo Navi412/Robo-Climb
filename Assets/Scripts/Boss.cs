@@ -51,7 +51,6 @@ public class Boss : MonoBehaviour
     public GameObject prefabEfectoSuelo;
     public Transform puntoEfecto;
 
-    // Variables Privadas
     private Rigidbody2D rb;
     private Transform jugador;
     private Rigidbody2D rbJugador;
@@ -62,6 +61,7 @@ public class Boss : MonoBehaviour
     private Animator anim;
     private bool jugadorEstaAplastado = false;
 
+    // Estados de la maquina de estados del Boss
     enum Estado { Siguiendo, Cayendo, EsperandoSuelo, Temblando, Volviendo }
     Estado estadoActual = Estado.Siguiendo;
 
@@ -72,7 +72,6 @@ public class Boss : MonoBehaviour
 
         if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Vida
         vidaMaxima = vida;
         if (barraVida != null)
         {
@@ -84,12 +83,10 @@ public class Boss : MonoBehaviour
         if (fasesDeDanio.Length > 0)
             spriteRenderer.sprite = fasesDeDanio[0];
 
-        // Físicas
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.useFullKinematicContacts = true;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-        // Buscar Jugador
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
@@ -107,6 +104,7 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
+        // Solo sigue al jugador en el eje X
         if (estadoActual == Estado.Siguiendo && jugador != null)
         {
             float objetivoX = Mathf.Clamp(jugador.position.x, minX, maxX);
@@ -129,6 +127,7 @@ public class Boss : MonoBehaviour
 
         vida--;
 
+        // Actualizar UI de la barra
         if (barraVida != null)
         {
             float porcentaje = (float)vida / vidaMaxima;
@@ -143,7 +142,7 @@ public class Boss : MonoBehaviour
 
         if (vida <= 0)
         {
-            // Seguridad: Aseguramos que el jugador se pueda mover
+            // Resetear fisicas del jugador antes de morir
             if (scriptMovimientoJugador != null) scriptMovimientoJugador.enabled = true;
             if (rbJugador != null) rbJugador.linearVelocity = Vector2.zero;
 
@@ -152,7 +151,7 @@ public class Boss : MonoBehaviour
 
             if (barraVida != null) barraVida.gameObject.SetActive(false);
 
-            // Animación de muerte y aparición del portal
+            // Secuencia de muerte
             transform.DOShakePosition(1f, 0.5f);
             transform.DOScale(0f, 0.5f).SetEase(Ease.InBack).OnComplete(() =>
             {
@@ -167,12 +166,12 @@ public class Boss : MonoBehaviour
         if (portalFinal != null)
         {
             portalFinal.SetActive(true);
-
             Vector3 escalaFinal = portalFinal.transform.localScale;
             if (escalaFinal == Vector3.zero) escalaFinal = Vector3.one;
 
             portalFinal.transform.localScale = Vector3.zero;
 
+            // Animacion de entrada del portal
             portalFinal.transform.DOScale(escalaFinal, 1.5f).SetEase(Ease.OutElastic).SetDelay(0.2f);
             portalFinal.transform.DORotate(new Vector3(0, 0, 360), 1.5f, RotateMode.FastBeyond360).SetEase(Ease.OutBack).SetDelay(0.2f);
         }
@@ -202,6 +201,7 @@ public class Boss : MonoBehaviour
         while (vida > 0)
         {
             yield return new WaitForSeconds(Random.Range(2f, 4f));
+            // Decide aleatoriamente que ataque usar
             if (Random.Range(0, 101) <= probabilidadAplastar) yield return StartCoroutine(AtaqueAplastar());
             else yield return StartCoroutine(AtaqueLluvia());
         }
@@ -212,14 +212,20 @@ public class Boss : MonoBehaviour
         estadoActual = Estado.Cayendo;
         yield return new WaitForSeconds(0.5f);
         if (anim != null) anim.SetBool("Cayendo", true);
+
+        // Cambiamos a Dynamic para que caiga por gravedad
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 10;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
+
         yield return new WaitForSeconds(tiempoEnSuelo);
         LiberarJugador();
+
+        // Volvemos a Kinematic para subir
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.linearVelocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
         estadoActual = Estado.Volviendo;
         posicionObjetivo = new Vector2(rb.position.x, alturaOriginalY);
         while (Vector2.Distance(rb.position, posicionObjetivo) > 0.1f) yield return null;
@@ -232,6 +238,7 @@ public class Boss : MonoBehaviour
         Vector2 posBase = rb.position;
         float tiempo = 0;
         float proximaPiedra = 0;
+
         while (tiempo < duracionTemblor)
         {
             posicionObjetivo = posBase + (Random.insideUnitCircle * 0.2f);
@@ -258,21 +265,19 @@ public class Boss : MonoBehaviour
         {
             ContactPoint2D contacto = col.contacts[0];
 
-            // Si golpeamos al Boss por arriba (cabeza)
+            // Detectar colision por arriba (cabeza del boss)
             if (contacto.normal.y < -0.7f)
             {
                 if (!esInvulnerable) RecibirDanio();
 
-                // === AQUÍ ESTABA EL BUG Y AQUÍ ESTÁ EL ARREGLO ===
-                // Solo empujamos al jugador SI EL BOSS SIGUE VIVO (vida > 0).
-                // Si acaba de morir, no hacemos knockback para no paralizar al player.
+                // Knockback solo si esta vivo
                 if (vida > 0 && rbJugador != null)
                 {
                     float direccionEmpuje = Mathf.Sign(col.transform.position.x - transform.position.x);
                     StartCoroutine(AplicarKnockback(direccionEmpuje));
                 }
-                // ================================================
             }
+            // Si el boss nos cae encima
             else if (contacto.normal.y > 0.7f && estadoActual == Estado.Cayendo)
             {
                 AplastarJugador(col.transform);
@@ -281,6 +286,7 @@ public class Boss : MonoBehaviour
             }
         }
 
+        // Choque contra el suelo
         if (estadoActual == Estado.Cayendo && col.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             if (prefabEfectoSuelo) Instantiate(prefabEfectoSuelo, puntoEfecto.position, Quaternion.identity);
@@ -321,6 +327,7 @@ public class Boss : MonoBehaviour
             rbJugador.linearVelocity = Vector2.zero;
             rbJugador.constraints = RigidbodyConstraints2D.FreezeAll;
         }
+        // Aplastamos el sprite del jugador
         playerTransform.DOKill();
         playerTransform.DOScale(new Vector3(escalaOriginalJugador.x * 1.5f, escalaOriginalJugador.y * 0.2f, 1f), 0.1f);
     }
