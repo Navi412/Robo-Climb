@@ -1,0 +1,382 @@
+fileFormatVersion: 2
+guid: dd3403cd8e17add47a0e5043fd5bd050
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3054185131855572238
+    second: sprites murciega_0
+  - first:
+      213: -363779487270980085
+    second: sprites murciega_1
+  - first:
+      213: 3248388569850787194
+    second: sprites murciega_2
+  - first:
+      213: -2483350381493182800
+    second: sprites murciega_3
+  - first:
+      213: 7974791159192362842
+    second: sprites murciega_4
+  - first:
+      213: 8904929870959479168
+    second: sprites murciega_5
+  - first:
+      213: -6369724365582036440
+    second: sprites murciega_6
+  - first:
+      213: -4032423522511777312
+    second: sprites murciega_7
+  - first:
+      213: -3879910489247573801
+    second: sprites murciega_8
+  - first:
+      213: 7761779762271536436
+    second: sprites murciega_9
+  - first:
+      213: 6597521606913292630
+    second: sprites murciega_10
+  - first:
+      213: -232935290970548425
+    second: sprites murciega_11
+  - first:
+      213: -7481182945946469494
+    second: sprites murciega_12
+  - first:
+      213: -7738948473313643043
+    second: sprites murciega_13
+  - first:
+      213: 3315695768516032479
+    second: sprites murciega_14
+  - first:
+      213: 8888231192470372510
+    second: sprites murciega_15
+  - first:
+      213: 4992623043824082341
+    second: sprites murciega_16
+  - first:
+      213: -8139110183285630616
+    second: sprites murciega_17
+  - first:
+      213: 6246846142138315469
+    second: sprites murciega_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprites murciega_0
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 222
+        width: 132
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f21879edca5d95d0800000000000000
+      internalID: -3054185131855572238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites murciega_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 235
+        width: 153
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b06b3a4db7893faf0800000000000000
+      internalID: -363779487270980085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites murciega_2
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 219
+        width: 109
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a75356e8138941d20800000000000000
+      internalID: 3248388569850787194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites murciega_3
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 213
+        width: 156
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0be94424cfd598dd0800000000000000
+      internalID: -2483350381493182800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites murciega_4
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 48
+        width: 151
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f16999e462cae60800000000000000
+      internalID: 7974791159192362842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites murciega_5
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 49
+        width: 102
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0890e4c898aa49b70800000000000000
+      internalID: 8904929870959479168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites murciega_7
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 49
+        width: 111
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e191c4cb24f908c0800000000000000
+      internalID: -4032423522511777312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprites murciega_10
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 48
+        width: 94
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 659f70242fa1f8b50800000000000000
+      internalID: 6597521606913292630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c48b624834d77c942aeeb7c73541eb7e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sprites murciega_0: -3054185131855572238
+      sprites murciega_1: -363779487270980085
+      sprites murciega_10: 6597521606913292630
+      sprites murciega_11: -232935290970548425
+      sprites murciega_12: -7481182945946469494
+      sprites murciega_13: -7738948473313643043
+      sprites murciega_14: 3315695768516032479
+      sprites murciega_15: 8888231192470372510
+      sprites murciega_16: 4992623043824082341
+      sprites murciega_17: -8139110183285630616
+      sprites murciega_18: 6246846142138315469
+      sprites murciega_2: 3248388569850787194
+      sprites murciega_3: -2483350381493182800
+      sprites murciega_4: 7974791159192362842
+      sprites murciega_5: 8904929870959479168
+      sprites murciega_6: -6369724365582036440
+      sprites murciega_7: -4032423522511777312
+      sprites murciega_8: -3879910489247573801
+      sprites murciega_9: 7761779762271536436
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

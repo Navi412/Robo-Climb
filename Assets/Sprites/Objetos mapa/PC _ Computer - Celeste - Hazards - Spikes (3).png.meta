@@ -1,0 +1,902 @@
+fileFormatVersion: 2
+guid: 01826f3f92df17a40bababf58f57ee32
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -65819746193401977
+    second: PC _ Computer - Celeste - Hazards - Spikes (3)_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 380
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7879fe02a49261ff0800000000000000
+      internalID: -65819746193401977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 207
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b39ffc60b359604b80d6c3f2ab48399
+      internalID: 1319606459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_2
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 380
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a767d5ecfa986ee4a97e2da5a1404ccb
+      internalID: -883804643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_3
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 380
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 928a71138b7582940b00d3953b2d22c4
+      internalID: -1092608490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 354
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eaf318be47d0254ab814fdf4c289cab
+      internalID: -313967353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_5
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 354
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbbb98f1660aa22498552d25bde1a4ff
+      internalID: 1666029801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_6
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 354
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de752e63b212bbb4a805e740a44248d6
+      internalID: -1778788678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 328
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b7769f422216974f9278deca0feee8a
+      internalID: -923321321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_8
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 328
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50098734a3e25444da9a2484610ed8c9
+      internalID: 880863612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_9
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 328
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f10dac5771acf844ba78b1fa49ea3b87
+      internalID: -1637181689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 301
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad12f66ef1c1de546be8b33d1dfe659a
+      internalID: 751265858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_11
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 301
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec1c9a321202e3043b34a4ae46f42736
+      internalID: -1756079588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_12
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 301
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4920603b703e6474ca808a29c72141af
+      internalID: -616457997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_13
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 301
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32f7734553e6e274db126470f726a3bc
+      internalID: 103807220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_14
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 278
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed17e89794c35145b12dfb3622b6797
+      internalID: -1431798602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_15
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 254
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2a66cc53f41d574e9e8c26687899564
+      internalID: 276162034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 230
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d892ea8bb97a52245bff552a9c7c051d
+      internalID: 626959482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_17
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 183
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 180aadbc772c5bb4892eee98246a5cad
+      internalID: 166987488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 157
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d31bc674ee2dc1d4ca01a634a1d0f7db
+      internalID: -2123343775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_19
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 131
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5158c2706f40b84eb4739658ce4ee6e
+      internalID: -859006303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_20
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 107
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0754213e6bff41c46a531efbfea05b62
+      internalID: 1939952679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_21
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 80
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbc169ec6c492a9488e1c72a0723818c
+      internalID: -1814563985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_22
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 80
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feadf4c280cf0c6428554ed634c55e10
+      internalID: 1755884554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_23
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 80
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d961ec2ecb9f68045a0849df2de507b6
+      internalID: -919698938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_24
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 54
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b35dc4a813ed24c871f442cd7fe4fa
+      internalID: 2069304087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_25
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 54
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9b6b6ef2e1b8746af5e20a02c0427f
+      internalID: -1746291968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_26
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 54
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6a51bc77f2b7db4bac49695b51aada6
+      internalID: -1010036139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_27
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 28
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f4063b423047184fa58ab951e61e5dd
+      internalID: 1968848072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_28
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 28
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9e4b8116c9ec2847885eccd286062f7
+      internalID: -106184282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_29
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 28
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c096eff6eb0b94e9b2be598f3ea3f3
+      internalID: 955880268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_30
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16874255f95b04a4ebca13843f088f5f
+      internalID: -2094158697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_31
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7dbb6a46a9480f42811fea214287e7c
+      internalID: 1591530364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_32
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 466fed6583949c949984121bff2a9079
+      internalID: -1930835682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Celeste - Hazards - Spikes (3)_33
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6787bfc674fe81746834d28ff2fcd4e4
+      internalID: -941306200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 63d1f874df0b52644837c7de319f40dd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PC _ Computer - Celeste - Hazards - Spikes (3)_0: -65819746193401977
+      PC _ Computer - Celeste - Hazards - Spikes (3)_1: 1319606459
+      PC _ Computer - Celeste - Hazards - Spikes (3)_10: 751265858
+      PC _ Computer - Celeste - Hazards - Spikes (3)_11: -1756079588
+      PC _ Computer - Celeste - Hazards - Spikes (3)_12: -616457997
+      PC _ Computer - Celeste - Hazards - Spikes (3)_13: 103807220
+      PC _ Computer - Celeste - Hazards - Spikes (3)_14: -1431798602
+      PC _ Computer - Celeste - Hazards - Spikes (3)_15: 276162034
+      PC _ Computer - Celeste - Hazards - Spikes (3)_16: 626959482
+      PC _ Computer - Celeste - Hazards - Spikes (3)_17: 166987488
+      PC _ Computer - Celeste - Hazards - Spikes (3)_18: -2123343775
+      PC _ Computer - Celeste - Hazards - Spikes (3)_19: -859006303
+      PC _ Computer - Celeste - Hazards - Spikes (3)_2: -883804643
+      PC _ Computer - Celeste - Hazards - Spikes (3)_20: 1939952679
+      PC _ Computer - Celeste - Hazards - Spikes (3)_21: -1814563985
+      PC _ Computer - Celeste - Hazards - Spikes (3)_22: 1755884554
+      PC _ Computer - Celeste - Hazards - Spikes (3)_23: -919698938
+      PC _ Computer - Celeste - Hazards - Spikes (3)_24: 2069304087
+      PC _ Computer - Celeste - Hazards - Spikes (3)_25: -1746291968
+      PC _ Computer - Celeste - Hazards - Spikes (3)_26: -1010036139
+      PC _ Computer - Celeste - Hazards - Spikes (3)_27: 1968848072
+      PC _ Computer - Celeste - Hazards - Spikes (3)_28: -106184282
+      PC _ Computer - Celeste - Hazards - Spikes (3)_29: 955880268
+      PC _ Computer - Celeste - Hazards - Spikes (3)_3: -1092608490
+      PC _ Computer - Celeste - Hazards - Spikes (3)_30: -2094158697
+      PC _ Computer - Celeste - Hazards - Spikes (3)_31: 1591530364
+      PC _ Computer - Celeste - Hazards - Spikes (3)_32: -1930835682
+      PC _ Computer - Celeste - Hazards - Spikes (3)_33: -941306200
+      PC _ Computer - Celeste - Hazards - Spikes (3)_4: -313967353
+      PC _ Computer - Celeste - Hazards - Spikes (3)_5: 1666029801
+      PC _ Computer - Celeste - Hazards - Spikes (3)_6: -1778788678
+      PC _ Computer - Celeste - Hazards - Spikes (3)_7: -923321321
+      PC _ Computer - Celeste - Hazards - Spikes (3)_8: 880863612
+      PC _ Computer - Celeste - Hazards - Spikes (3)_9: -1637181689
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

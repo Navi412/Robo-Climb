@@ -1,0 +1,178 @@
+Entrega: un manual detallado y visual sobre cómo realizar la configuración de un nuevo módulo de Odoo (gestion_productos), incluyendo backend y frontend (lo que hemos visto hoy, la no asistencia a la sesión no exime de la realización de esta parte del trabajo).
+
+(*He dejado en un zip en el campus (modulo-odoo) el proyecto que he creado en clase, junto con el documento de instrucciones de hoy, podeis hacer el manual con este código si el vuestro no os funciona)
+
+
+Puntos del manual
+Capturas obligatorias
+1.Parte Docker:
+
+1.1.docker compose up -d ejecutado
+
+Debe verse: terminal con el comando + salida (servicios levantados).
+Debe vincularse con: docker-compose.yaml (captura del archivo) donde se vean:
+services: (db / odoo)
+container_name: de cada servicio (si existe)
+ports: (8069:8069)
+depends_on: (odoo depende de db)
+volumes: y networks: (si aplica)
+Extra obligatorio: captura de Docker Desktop mostrando los contenedores “Running” con sus nombres.
+1.2.docker ps
+
+Debe verse: lista de contenedores, nombres, estado, puertos publicados.
+Vincular con docker-compose.yaml: señalar con flechas
+
+
+1.3.docker compose logs -f odoo (tu ejemplo)
+
+Debe verse: comando + logs en tiempo real.
+Señalar en los logs:
+Si has solucionado algún error, como lo interpretas, por ejemplo puedes forzar un error, cambiando el id de la plantilla templates.xml que tenga un valor distinto al del controller y vemos el error que aparece en la terminal. (Captura y relación del error)
+
+
+2.scaffold: estructura del módulo y responsabilidad de cada directorio
+Capturas obligatorias
+
+2.1.Comando odoo-bin scaffold gestion_productos
+
+Debe verse: comando en terminal y ruta donde se creó.
+2.2. Árbol de carpetas del módulo recién creado
+
+Captura explorador (VS Code) con todo el módulo expandido.
+Señalar (con flechas o resaltado) estos elementos:
+__manifest__.py
+__init__.py (raíz)
+models/, views/, security/, controllers/, data/ (si existe), static/ (si hay frontend)
+2.3.Responsabilidad de cada carpeta (captura + texto)
+
+models/
+views/
+security/
+controllers/
+__manifest__.py
+__init__.py
+
+
+3.Relación producto.py, con vistas y exportación de datos del modulo
+
+Aquí lo importante es que se vea la relación exacta por nombres y IDs.
+
+Capturas obligatorias
+
+3.1.Modelo en models/producto.py
+
+Captura donde se vea:
+_name = '...' (nombre técnico del modelo)
+campos principales (fields.Char, fields.Float, etc.)
+3.2.Vista XML (en views/*.xml) con el model="..." correcto
+
+Captura donde se vea y se explique:
+<record ... model="ir.ui.view">
+<field name="model">EL_DEL__name</field>
+el XML <form>, <tree>, <field name="campo">
+Debe verse en la misma entrega (aunque sea en dos capturas consecutivas) producto.py y el XML, y deben escribir:
+“Campo X del modelo aparece como <field name="X"/> en la vista”.
+3.3.Acción y menú que abren esa vista
+
+Captura del XML:
+ir.actions.act_window con res_model
+menuitem con action="..." y su relación con la acción
+Deben marcar:
+action id ↔ menu action
+res_model ↔ _name
+3.4.Exportación/actualización de archivos en __manifest__.py
+
+Captura del __manifest__.py mostrando data: [...] o demo: [...]
+Deben señalar:
+que se incluyan los XML correctos (views, security, etc.)
+el orden recomendado (por ejemplo: security antes que vistas, si aplica)
+
+
+4.Relación código con lo que vemos en el ERP
+
+http://localhost:8069/web
+
+Capturas obligatorias
+
+4.1.Apps → actualización de lista de aplicaciones / instalación del módulo
+
+Captura del ERP instalando gestion_productos.
+4.2.Menú en Odoo que aparece tras instalar
+
+Captura del menú lateral donde aparece “Gestión Productos”.
+Vincular con XML del menú:
+captura del menuitem en views/*.xml
+flecha/nota: name="..." se ve como etiqueta en Odoo.
+4.3.Vista lista (tree) y vista formulario
+
+Captura de la vista list/tree en Odoo y del formulario.
+Al lado (o en capturas consecutivas): el XML correspondiente con:
+<tree> y <form>
+<field name="...">
+Texto: “esta columna corresponde a este field; este widget viene de…”
+4.4.Acción que abre la vista
+
+Captura del ir.actions.act_window en XML y explicar:
+res_model
+view_mode
+
+
+5.QWeb + Website: templates, t, t-foreach, IDs, controlador y vínculo con el modelo
+
+Capturas obligatorias
+
+5.1.Template QWeb
+
+Captura del archivo XML/plantilla con:
+<template id="...">
+t-call="website.layout" (si lo usan)
+t-foreach="productos" t-as="p" ¿De donde sale productos?Captura con la relación
+t-esc="p.name" / t-att-href etc.
+Deben explicar (texto corto, con ejemplo):
+qué es template
+qué hace t-call
+qué hace t-foreach y qué variable crea (p)
+qué hace t-esc
+5.2.Controlador (controllers/*.py) que renderiza el template
+
+Captura del controlador con:
+@http.route(...)
+request.env['modelo'].search(...)
+return request.render('modulo.template_id', {...})
+Deben señalar:
+la ruta (/productos o la que sea)
+el modelo consultado (tiene que coincidir con _name)
+el diccionario de contexto: clave productos ↔ usado en t-foreach="productos"
+5.3.Salida en la web
+
+Captura del navegador en la URL del website (ej. http://localhost:8069/productos)
+Captura del backend “Website” si han añadido página/menú (si aplica)
+Deben vincular:
+URL ↔ @http.route
+plantilla que se ve ↔ request.render(...)
+datos pintados ↔ request.env[...]
+5.4.Añadir Website / dependencias
+
+Captura del __manifest__.py donde se vea:
+depends: ['website', ...]
+
+
+
+
+Reglas generales para TODAS las capturas (para que el manual sea “a prueba de novatos")
+Cada captura debe incluir título, flechas/resaltado, y 2–4 líneas de explicación.
+En capturas de código: que se vea nombre del archivo, y si pueden, líneas o al menos el bloque completo.
+Siempre que haya un “id” o un nombre técnico, deben mostrar dónde se define y dónde se usa (dos capturas enlazadas).
+Si un paso depende de otro, deben poner un mini “Checklist” debajo: “Antes de esto, verifica X”.
+
+
+El manual debe permitir que cualquier persona pueda configurar correctamente el módulo usando únicamente ese documento. Para ello, es imprescindible sea muy visual. La idea es que el manual sirva como guía completa de setup del modelo, paso a paso, para una persona que lo hace por primera vez.
+
+Evaluación
+Quien no entregue el manual, o quien obtenga una nota inferior a 7, deberá realizar el proyecto final completo + una prueba técnica adicional el día del examen.
+
+Os recomiendo no dejarlo para el último momento y centraros en la claridad y calidad del manual.
+
+
+
+Ejemplo Captura explicativa del manual

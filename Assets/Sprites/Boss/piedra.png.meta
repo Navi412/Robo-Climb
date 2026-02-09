@@ -1,0 +1,388 @@
+fileFormatVersion: 2
+guid: 7aa5f1adbc52cd643b5a44c5b3dfcccc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9152689546471649384
+    second: piedra_0
+  - first:
+      213: 6800037199504113173
+    second: piedra_1
+  - first:
+      213: 7424172828450474089
+    second: piedra_2
+  - first:
+      213: 6542709236330956393
+    second: piedra_3
+  - first:
+      213: -5877193730774982617
+    second: piedra_4
+  - first:
+      213: -2633930914456281572
+    second: piedra_5
+  - first:
+      213: -6574209143328421254
+    second: piedra_6
+  - first:
+      213: 2420680441817333300
+    second: piedra_7
+  - first:
+      213: 5342701813352459832
+    second: piedra_8
+  - first:
+      213: -4027026590914208233
+    second: piedra_9
+  - first:
+      213: -5420230035489839771
+    second: piedra_10
+  - first:
+      213: 7763720306610222791
+    second: piedra_11
+  - first:
+      213: -4060663778098371873
+    second: piedra_12
+  - first:
+      213: -1102508496174237542
+    second: piedra_13
+  - first:
+      213: 7346929234909327990
+    second: piedra_14
+  - first:
+      213: 5696142630494905282
+    second: piedra_15
+  - first:
+      213: -475432349847781919
+    second: piedra_16
+  - first:
+      213: 5544869920473809353
+    second: piedra_17
+  - first:
+      213: 1798441703265183429
+    second: piedra_18
+  - first:
+      213: 1875263286304624891
+    second: piedra_19
+  - first:
+      213: 7491554247425781409
+    second: piedra_20
+  - first:
+      213: -8457024896526055174
+    second: piedra_21
+  - first:
+      213: 9036375566837233502
+    second: piedra_22
+  - first:
+      213: 7655156174114991447
+    second: piedra_23
+  - first:
+      213: -67163639944642891
+    second: piedra_24
+  - first:
+      213: -2506824901652845020
+    second: piedra_25
+  - first:
+      213: 7997813231816402585
+    second: piedra_26
+  - first:
+      213: 6197048109938462788
+    second: piedra_27
+  - first:
+      213: 1346218364237163066
+    second: piedra_28
+  - first:
+      213: -3979866527340598423
+    second: piedra_29
+  - first:
+      213: 7994477779657068440
+    second: piedra_30
+  - first:
+      213: -6697375646945254766
+    second: piedra_31
+  - first:
+      213: 4297575500934292298
+    second: piedra_32
+  - first:
+      213: 2904052227881669677
+    second: piedra_33
+  - first:
+      213: -7993665458679325091
+    second: piedra_34
+  - first:
+      213: -6312597968471943611
+    second: piedra_35
+  - first:
+      213: -8418187672963447007
+    second: piedra_36
+  - first:
+      213: 4813409579601835001
+    second: piedra_37
+  - first:
+      213: -823016284736114001
+    second: piedra_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: piedra_12
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 270
+        width: 115
+        height: 145
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd2a622eecf95a7c0800000000000000
+      internalID: -4060663778098371873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piedra_13
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 268
+        width: 113
+        height: 148
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a983fa33d5a13b0f0800000000000000
+      internalID: -1102508496174237542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piedra_14
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 268
+        width: 115
+        height: 147
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 672f3b4a63985f560800000000000000
+      internalID: 7346929234909327990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piedra_15
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 270
+        width: 115
+        height: 145
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c3ab900b83cc0f40800000000000000
+      internalID: 5696142630494905282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ff6e0a1432c58bf40b3059ced488a7b2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      piedra_0: -9152689546471649384
+      piedra_1: 6800037199504113173
+      piedra_10: -5420230035489839771
+      piedra_11: 7763720306610222791
+      piedra_12: -4060663778098371873
+      piedra_13: -1102508496174237542
+      piedra_14: 7346929234909327990
+      piedra_15: 5696142630494905282
+      piedra_16: -475432349847781919
+      piedra_17: 5544869920473809353
+      piedra_18: 1798441703265183429
+      piedra_19: 1875263286304624891
+      piedra_2: 7424172828450474089
+      piedra_20: 7491554247425781409
+      piedra_21: -8457024896526055174
+      piedra_22: 9036375566837233502
+      piedra_23: 7655156174114991447
+      piedra_24: -67163639944642891
+      piedra_25: -2506824901652845020
+      piedra_26: 7997813231816402585
+      piedra_27: 6197048109938462788
+      piedra_28: 1346218364237163066
+      piedra_29: -3979866527340598423
+      piedra_3: 6542709236330956393
+      piedra_30: 7994477779657068440
+      piedra_31: -6697375646945254766
+      piedra_32: 4297575500934292298
+      piedra_33: 2904052227881669677
+      piedra_34: -7993665458679325091
+      piedra_35: -6312597968471943611
+      piedra_36: -8418187672963447007
+      piedra_37: 4813409579601835001
+      piedra_38: -823016284736114001
+      piedra_39: -1750938554
+      piedra_4: -5877193730774982617
+      piedra_5: -2633930914456281572
+      piedra_6: -6574209143328421254
+      piedra_7: 2420680441817333300
+      piedra_8: 5342701813352459832
+      piedra_9: -4027026590914208233
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
